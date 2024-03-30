@@ -1,6 +1,5 @@
 import { categoryRoute } from "../route.js";
 
-
 export const createMenuElement = () => {
   const menu = document.createElement("ul");
 
@@ -8,7 +7,7 @@ export const createMenuElement = () => {
 
   const menuItems = [
     { label: "Characters", route: "characters" },
-    { label: "Comics", route: "comisc" },
+    { label: "Comics", route: "comics" },
     { label: "Events", route: "events" },
     { label: "Series", route: "series" },
     { label: "Stories", route: "stories" },
@@ -19,9 +18,9 @@ export const createMenuElement = () => {
     var li = document.createElement("li");
     li.textContent = item.label;
     li.setAttribute("data-key", item.route);
-    li.addEventListener("click", ()=>{
-      categoryRoute(item.route)
-    })
+    li.addEventListener("click", () => {
+      categoryRoute(item.route);
+    });
     menu.appendChild(li);
   });
   return menu;
@@ -39,6 +38,12 @@ export const createInputElement = () => {
 
 export const createLogoElement = () => {
   const logoImg = document.createElement("img");
+  logoImg.addEventListener("click", () => {
+    const getCategoryTag = document.getElementById("category-container");
+    getCategoryTag.style.display="none";
+    const getMainTag = document.querySelector(".main-page");
+    getMainTag.style.display="flex"
+  });
 
   logoImg.className = "logo";
 
@@ -56,7 +61,7 @@ export const createVideoElement = () => {
   video.src = "/public/assets/marvel.mp4";
   video.controls = true;
   video.autoplay = false;
-  video.buffered
+  video.buffered;
 
   video.width = 1000;
 

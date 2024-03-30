@@ -2,7 +2,7 @@ import { createInputElement, createLogoElement, createMenuElement, createTexElem
 
 // getApi("characters");
 
-const homePage = () => {
+export const homePage = () => {
   const menuElement = createMenuElement();
 
   const inpuElement= createInputElement();
