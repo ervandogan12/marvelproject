@@ -3,8 +3,9 @@ import { createInputElement, createLogoElement, createMenuElement, createTexElem
 // getApi("characters");
 
 export const homePage = () => {
-  const menuElement = createMenuElement();
 
+
+  const menuElement = createMenuElement();
   const inpuElement= createInputElement();
   const logo = createLogoElement();
   const menuDiv = document.createElement("div");
