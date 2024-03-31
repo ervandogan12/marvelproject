@@ -1,5 +1,5 @@
 import { getData } from "../data.js";
-import { getFavoritesData } from '../pages/getFavoritesData.js';
+import { getCategoryData } from "./cathegoryPage.js";
 export const insertFavorites = async (id, favorites) => {
 
 const categoryData = await getData("characters");
@@ -15,8 +15,7 @@ const categoryData = await getData("characters");
   });
 
  localStorage.setItem("favorites", JSON.stringify(favorites));
-
- getFavoritesData("favorites");
+ getCategoryData("characters");
 };
 
 export const removeFavorite = (id, favorites) => {
@@ -31,5 +30,5 @@ export const removeFavorite = (id, favorites) => {
       }
     });
   localStorage.setItem("favorites", JSON.stringify(favorites));
-   getFavoritesData("favorites");
+   getCategoryData("characters");
 };

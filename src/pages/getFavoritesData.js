@@ -5,6 +5,9 @@ export const getFavoritesData = () => {
     if (favorites) {
      favorites = JSON.parse(favorites);
     }
+    else{
+      favorites=[];
+    }
     favorites.map((arrayElement) => {
        createFavCard(arrayElement)
     });

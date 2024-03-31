@@ -58,7 +58,7 @@ export const createLogoElement = () => {
   });
 
   logoImg.className = "logo";
-
+  logoImg.title="Home Page"
   logoImg.src = "/public/assets/logo.png";
   logoImg.alt = "name";
 
@@ -73,9 +73,9 @@ export const createVideoElement = () => {
   video.src = "/public/assets/marvel.mp4";
   video.controls = true;
   video.autoplay = false;
-  video.buffered;
+  video.poster="/public/assets/poster.jpg";
 
-  video.width = 1000;
+  // video.width = 1000;
 
   videoContainer.appendChild(video);
 

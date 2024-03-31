@@ -29,12 +29,16 @@ export function createCard(item, route) {
     const favorites = favHandler();
     if (favorites) {
       favorites.forEach((favItem) => {
+        console.log("32--"+favItem.id)
+        console.log("33--"+item.id)
         if (favItem.id === item.id) {
+          newIcon.className = "far fa-bookmark inFav";
+          console.log("35"+item.id)
           const clickHandlerRemoveFav = () => {
             const favorites = favHandler();
             removeFavorite(item.id, favorites);
           };
-          newIcon.className = "far fa-bookmark inFav";
+
           newIcon.removeEventListener("click", clickHandlerAddFav);
           newIcon.addEventListener("click", clickHandlerRemoveFav);
           newIcon.title = "Remove";
