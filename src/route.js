@@ -1,5 +1,5 @@
 import { getCategoryData } from "./pages/cathegoryPage.js";
-
+import { getFavoritesData } from "./pages/getFavoritesData.js";
 export const categoryRoute = async (route) => {
   console.log(`${route} 5--clicked`)
   const main = document.querySelector(".main-page");
@@ -15,6 +15,10 @@ export const categoryRoute = async (route) => {
   newCayegoryPage.className = "category-container";
   document.body.appendChild(newCayegoryPage); 
 
-
-  getCategoryData(route);
+if (route!=="favorites") {
+  getCategoryData(route);  
+}
+else{
+  getFavoritesData()
+}
 };

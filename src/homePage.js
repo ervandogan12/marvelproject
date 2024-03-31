@@ -5,6 +5,7 @@ import { createInputElement, createLogoElement, createMenuElement, createTexElem
 export const homePage = () => {
 
 
+
   const menuElement = createMenuElement();
   const inpuElement= createInputElement();
   const logo = createLogoElement();
@@ -27,6 +28,7 @@ export const homePage = () => {
   document.body.appendChild(menuDiv);
   document.body.appendChild(mainContainer);
 };
+
 
 
 

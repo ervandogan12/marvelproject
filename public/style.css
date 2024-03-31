@@ -24,27 +24,47 @@ body {
 }
 
 .menu {
-  list-style-type: none;
+  display: inline-flex;
+  flex-direction: row;
   margin-top: 2vh;
   margin-left: 10vh;
+  gap: 2rem;
+
 }
 
-.menu li {
-  display: inline-block;
-  margin-right: 10px;
-  margin-top: 3vh;
-  font-size: 1.6rem;
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Optional: You can set a maximum width */
+}
+.video-container video {
+  width: 100%;
+  height: auto;
 }
 
-.menu li.active {
-  background-color: #ddd;
+.menu a {
+  color: #232222;
+  text-align: center;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.menu a:hover {
+  background-color: #884e4e;
   color: black;
+  height: fit-content;
 }
 
-.menu li:hover {
-  background-color: #2980b9;
+.menu.active {
+  background-color: #04AA6D;
   color: white;
 }
+
+.menu .icon {
+  display: none;
+}
+
 
 #inputEvent {
 
@@ -53,7 +73,7 @@ body {
   max-width: 25%;
   height: fit-content;
   margin-top: 3vh;
-  margin-left: 45vh;
+  margin-left: 5vh;
   margin-bottom: 3vh;
   border: 2px solid;
   border-radius: 30px;
@@ -138,4 +158,69 @@ body {
   font-size: 24px !important;
   color: #f00a0a;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .menu a:not(:first-child) {
+    display: none;
+  }
+
+  .menu{
+    margin-top: 4rem;
+  }
+  .menu a.icon {
+    float: right;
+    display: block;
+    padding: 5px 20px;
+    margin-left: 70px;
+    margin-top: -2rem;
+  }
+  .menu a {
+    margin-right:5rem;
+    margin-top: -1.2rem;
+  }
+
+  .menu.responsive {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu.responsive .icon {
+    position: absolute;
+    margin-top: -2rem;
+    margin-right: 0;
+  }
+
+  .menu.responsive a {
+
+    display: block;
+    text-align: left;
+    margin-top: -1.5rem;
+  }
+
+
+  .logo {
+    margin-right: 2rem;
+    height: 30px;
+    max-width: 45%;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #inputEvent{
+    margin-left: -4vh;
+  }
+  .video-container {
+   margin-left: 0.3rem;/* Optional: You can set a maximum width */
+  }
+}
+
+@media screen and (min-width: 1168px) {
+  #inputEvent{
+    margin-left: 35vh;
+  }
 }

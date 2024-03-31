@@ -1,4 +1,4 @@
-import { insertFavorites } from "../pages/insertFavorites.js";
+import { insertFavorites, removeFavorite } from "../pages/insertFavorites.js";
 
 export function createCard(item, route) {
   const newCayegoryPage = document.querySelector(".category-container");
@@ -15,25 +15,33 @@ export function createCard(item, route) {
     newDivCard.appendChild(newImg);
   }
 
-  if ((route === "characters")||(route === "favorites")) {
-    console.log("--25--");
-
+  if (route === "characters") {
     const newIcon = document.createElement("i");
     newIcon.className = "far fa-bookmark icon-fav";
     newIcon.title = "Add to Favorites";
-    newIcon.addEventListener("click", () => {
-      const favorites = favHandler();
-      insertFavorites(item.id, favorites);
-    });
+
+  const clickHandlerAddFav = () => {
     const favorites = favHandler();
-    favorites.forEach((favItem) => {
-      if (favItem.id === item.id) {
-        newIcon.className = "far fa-bookmark inFav";
-        newIcon.removeEventListener("click", insertFavorites);
-        // newIcon.addEventListener("click", removeFavorite);
-        newIcon.title = "Remove";
-      }
-    });
+    insertFavorites(item.id, favorites);
+};
+
+    newIcon.addEventListener("click", clickHandlerAddFav);
+    const favorites = favHandler();
+    if (favorites) {
+      favorites.forEach((favItem) => {
+        if (favItem.id === item.id) {
+          const clickHandlerRemoveFav = () => {
+            const favorites = favHandler();
+            removeFavorite(item.id, favorites);
+          };
+          newIcon.className = "far fa-bookmark inFav";
+          newIcon.removeEventListener("click", clickHandlerAddFav);
+          newIcon.addEventListener("click", clickHandlerRemoveFav);
+          newIcon.title = "Remove";
+        }
+      });
+    }
+ 
     newDivCard.appendChild(newIcon);
     const nameP = document.createElement("p");
     const namePtext = document.createTextNode(`NAME: ${item.name}`);
@@ -54,4 +62,6 @@ function favHandler() {
   if (favorites) {
   return favorites = JSON.parse(favoriteslocal);
   }
+
+
 }

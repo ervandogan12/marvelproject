@@ -1,9 +1,16 @@
 import { categoryRoute } from "../route.js";
 
 export const createMenuElement = () => {
-  const menu = document.createElement("ul");
-
+  const menu = document.createElement("div");
+  const menuIcon = document.createElement("i");
+  menuIcon.className = "fa fa-bars";
+  const menuIconHolder = document.createElement("a");
+  menuIconHolder.className = "icon";
+  menuIconHolder.href = "javascript:void(0)";
+  menuIconHolder.appendChild(menuIcon);
   menu.className = "menu";
+
+  menuIcon.addEventListener("click", navMenu);
 
   const menuItems = [
     { label: "Characters", route: "characters" },
@@ -15,14 +22,15 @@ export const createMenuElement = () => {
   ];
 
   menuItems.forEach(function (item) {
-    var li = document.createElement("li");
-    li.textContent = item.label;
-    li.setAttribute("data-key", item.route);
-    li.addEventListener("click", () => {
+    let a = document.createElement("a");
+    a.textContent = item.label;
+    a.setAttribute("data-key", item.route);
+    a.addEventListener("click", () => {
       categoryRoute(item.route);
     });
-    menu.appendChild(li);
+    menu.appendChild(a);
   });
+  menu.appendChild(menuIconHolder);
   return menu;
 };
 
@@ -39,10 +47,14 @@ export const createInputElement = () => {
 export const createLogoElement = () => {
   const logoImg = document.createElement("img");
   logoImg.addEventListener("click", () => {
+   
     const getCategoryTag = document.getElementById("category-container");
-    getCategoryTag.style.display="none";
-    const getMainTag = document.querySelector(".main-page");
-    getMainTag.style.display="flex"
+    if (getCategoryTag) {
+      getCategoryTag.style.display = "none";
+      const getMainTag = document.querySelector(".main-page");
+      getMainTag.style.display = "flex";
+    }
+  
   });
 
   logoImg.className = "logo";
@@ -80,3 +92,12 @@ export const createTexElement = () => {
 
   return textContainer;
 };
+
+function navMenu() {
+  const x = document.querySelector(".menu");
+  if (x.className === "menu") {
+    x.className += " responsive";
+  } else {
+    x.className = "menu";
+  }
+}
