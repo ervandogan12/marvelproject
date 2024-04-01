@@ -1,6 +1,8 @@
 import { insertFavorites, removeFavorite } from "../pages/insertFavorites.js";
 
 export function createCard(item, route) {
+
+
   const newCayegoryPage = document.querySelector(".category-container");
 
   const newDivCard = document.createElement("div");
@@ -54,6 +56,7 @@ export function createCard(item, route) {
   } else {
     const titleP = document.createElement("p");
     const titlePtext = document.createTextNode(`TITLE: ${item.title}`);
+    console.log(item)
     titleP.appendChild(titlePtext);
     newDivCard.appendChild(titleP);
   }

@@ -24,6 +24,7 @@ body {
 }
 
 .menu {
+
   display: inline-flex;
   flex-direction: row;
   margin-top: 2vh;
@@ -54,6 +55,7 @@ body {
   margin-top: 1.5rem;
   text-decoration: none;
   font-size: 17px;
+  margin-left: -1rem;
 }
 
 .menu a:hover {
@@ -72,19 +74,35 @@ body {
   display: none;
 }
 
-
-#inputEvent {
-
-  background-color: rgb(244, 244, 244);
-  padding-top: 4vh;
-  max-width: 25%;
-  height: fit-content;
-  margin-top: 3vh;
-  margin-left: 5vh;
-  margin-bottom: 3vh;
+.search-container {
+  margin-top: 6vh;
+  width: 2vh;
+  align-items: center;
+}
+.search-input {
+  width: 20vw;
+  max-width: 190px;
   border: 2px solid;
   border-radius: 30px;
 
+  border-color: #0b0b0b;
+
+}
+
+.search-field {
+
+  max-width: 90%;
+  border: 2px solid;
+  border-radius: 30px;
+  align-items: center;
+  border-color: #0b0b0b;
+
+}
+.search-container::placeholder {
+  font-size: 1%;
+  color: black;
+  opacity: 0.6;
+  margin: 1rem;
 }
 
 .logo {
@@ -180,11 +198,11 @@ body {
     display: block;
     padding: 5px 20px;
     margin-left: 70px;
-    margin-top: -2rem;
+    margin-top: -1.5rem;
   }
   .menu a {
     margin-right:5rem;
-    margin-top: -1.2rem;
+    margin-top: -1rem;
   }
 
   .menu.responsive {
@@ -211,6 +229,7 @@ body {
     margin-right: 2rem;
     height: 30px;
     max-width: 45%;
+    margin-top: 0.5rem;
   }
 
   .header {
@@ -218,8 +237,9 @@ body {
     align-items: center;
   }
 
-  #inputEvent{
-    margin-left: -4vh;
+
+  .search-container {
+    margin-right:15vh;
   }
   .video-container {
    margin-left: 0.3rem;/* Optional: You can set a maximum width */
@@ -228,6 +248,9 @@ body {
 
 @media screen and (min-width: 1168px) {
   #inputEvent{
+    margin-left: 35vh;
+  }
+  .search-container {
     margin-left: 35vh;
   }
 }

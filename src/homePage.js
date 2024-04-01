@@ -1,11 +1,9 @@
+import { searchHandler } from "../src/pages/searchPage.js";
 import { createInputElement, createLogoElement, createMenuElement, createTexElement, createVideoElement } from "../src/views/homePageView.js";
 
 // getApi("characters");
 
 export const homePage = () => {
-
-
-
   const menuElement = createMenuElement();
   const inpuElement= createInputElement();
   const logo = createLogoElement();
@@ -27,6 +25,8 @@ export const homePage = () => {
 
   document.body.appendChild(menuDiv);
   document.body.appendChild(mainContainer);
+
+  searchHandler()
 };
 
 

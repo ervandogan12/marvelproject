@@ -1,5 +1,6 @@
+import { searchHandler } from "../pages/searchPage.js";
 import { categoryRoute } from "../route.js";
-
+import { categoryToggle } from "../views/categoryStarter.js";
 export const createMenuElement = () => {
   const menu = document.createElement("div");
   const menuIcon = document.createElement("i");
@@ -35,13 +36,28 @@ export const createMenuElement = () => {
 };
 
 export const createInputElement = () => {
+  const inputElementDiv = document.createElement("div");
+  inputElementDiv.className="search-container"
   const inpuElement = document.createElement("input");
+  inputElementDiv.appendChild(inpuElement)
 
   inpuElement.type = "text";
   inpuElement.name = "name";
   inpuElement.id = "inputEvent";
+  inpuElement.className = "search-input";
+  inpuElement.placeholder = "Type a word";
 
-  return inpuElement;
+  inpuElement.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      categoryToggle()
+        let inputValue = event.target.value;
+        searchHandler(inputValue)
+      
+    }})
+
+
+
+  return inputElementDiv;
 };
 
 export const createLogoElement = () => {
