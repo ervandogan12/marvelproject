@@ -190,10 +190,10 @@ body {
 .footer-container{
 
   height: 5rem;
-
   margin-top: 4rem;
   margin-left: 4rem;
   align-items: center;
+  z-index: 1000;
 }
 .footerText-container{
 

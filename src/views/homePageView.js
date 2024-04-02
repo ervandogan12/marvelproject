@@ -28,7 +28,9 @@ export const createMenuElement = () => {
     a.textContent = item.label;
     a.setAttribute("data-key", item.route);
     a.addEventListener("click", () => {
-      clearSearchField()
+      clearSearchField();
+      const footer = document.querySelector(".footer-container")
+      footer.style.display = "none";
       categoryRoute(item.route);
     });
     menu.appendChild(a);
@@ -63,6 +65,8 @@ export const createInputElement = () => {
 export const createLogoElement = () => {
   const logoImg = document.createElement("img");
   logoImg.addEventListener("click", () => {
+    const footer = document.querySelector(".footer-container")
+    footer.style.display = "block";
     clearSearchField();
 
     const getCategoryTag = document.getElementById("category-container");
@@ -111,19 +115,18 @@ export const createTexElement = () => {
 
 export const createFooter = () => {
   const footerContainer = document.createElement("div");
-  footerContainer.className="footer-container"
+  footerContainer.className = "footer-container";
   const textContainer = document.createElement("p");
   textContainer.className = "footerText-container";
 
-  const footerIcon= document.createElement('i');
-  footerIcon.className="fab fa-creative-commons-nc"
-  textContainer.appendChild(footerIcon)
-  const footerText =
-    " ©copyright: Developed by Dogan-Soft 2024©" ;
+  const footerIcon = document.createElement("i");
+  footerIcon.className = "fab fa-creative-commons-nc";
+  textContainer.appendChild(footerIcon);
+  const footerText = " ©copyright: Developed by Dogan-Soft 2024©";
   const footer = document.createTextNode(footerText);
 
   textContainer.appendChild(footer);
-  footerContainer.appendChild(textContainer)
+  footerContainer.appendChild(textContainer);
 
   return footerContainer;
 };
@@ -135,4 +138,5 @@ function navMenu() {
   } else {
     x.className = "menu";
   }
+
 }

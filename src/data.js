@@ -1,4 +1,4 @@
-import { PRIVATE_API_KEY, PUBLIC_API_KEY } from "./constant.js";
+ import { PRIVATE_API_KEY, PUBLIC_API_KEY } from "./constant.js";
 
 function generateTimestamp() {
   return new Date().getTime().toString();
