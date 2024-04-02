@@ -1,3 +1,4 @@
+import { clearSearchField } from "../pages/clearSearch.js";
 import { searchHandler } from "../pages/searchPage.js";
 import { categoryRoute } from "../route.js";
 import { categoryToggle } from "../views/categoryStarter.js";
@@ -27,6 +28,7 @@ export const createMenuElement = () => {
     a.textContent = item.label;
     a.setAttribute("data-key", item.route);
     a.addEventListener("click", () => {
+      clearSearchField()
       categoryRoute(item.route);
     });
     menu.appendChild(a);
@@ -37,9 +39,9 @@ export const createMenuElement = () => {
 
 export const createInputElement = () => {
   const inputElementDiv = document.createElement("div");
-  inputElementDiv.className="search-container"
+  inputElementDiv.className = "search-container";
   const inpuElement = document.createElement("input");
-  inputElementDiv.appendChild(inpuElement)
+  inputElementDiv.appendChild(inpuElement);
 
   inpuElement.type = "text";
   inpuElement.name = "name";
@@ -47,15 +49,13 @@ export const createInputElement = () => {
   inpuElement.className = "search-input";
   inpuElement.placeholder = "Type a word";
 
-  inpuElement.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-      categoryToggle()
-        let inputValue = event.target.value;
-        searchHandler(inputValue)
-      
-    }})
-
-
+  inpuElement.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      categoryToggle();
+      let inputValue = event.target.value;
+      searchHandler(inputValue);
+    }
+  });
 
   return inputElementDiv;
 };
@@ -63,18 +63,18 @@ export const createInputElement = () => {
 export const createLogoElement = () => {
   const logoImg = document.createElement("img");
   logoImg.addEventListener("click", () => {
-   
+    clearSearchField();
+
     const getCategoryTag = document.getElementById("category-container");
     if (getCategoryTag) {
       getCategoryTag.style.display = "none";
       const getMainTag = document.querySelector(".main-page");
       getMainTag.style.display = "flex";
     }
-  
   });
 
   logoImg.className = "logo";
-  logoImg.title="Home Page"
+  logoImg.title = "Home Page";
   logoImg.src = "/public/assets/logo.png";
   logoImg.alt = "name";
 
@@ -89,7 +89,7 @@ export const createVideoElement = () => {
   video.src = "/public/assets/marvel.mp4";
   video.controls = true;
   video.autoplay = false;
-  video.poster="/public/assets/poster.jpg";
+  video.poster = "/public/assets/poster.jpg";
 
   // video.width = 1000;
 
@@ -107,6 +107,25 @@ export const createTexElement = () => {
   textContainer.appendChild(info);
 
   return textContainer;
+};
+
+export const createFooter = () => {
+  const footerContainer = document.createElement("div");
+  footerContainer.className="footer-container"
+  const textContainer = document.createElement("p");
+  textContainer.className = "footerText-container";
+
+  const footerIcon= document.createElement('i');
+  footerIcon.className="fab fa-creative-commons-nc"
+  textContainer.appendChild(footerIcon)
+  const footerText =
+    " ©copyright: Developed by Dogan-Soft 2024©" ;
+  const footer = document.createTextNode(footerText);
+
+  textContainer.appendChild(footer);
+  footerContainer.appendChild(textContainer)
+
+  return footerContainer;
 };
 
 function navMenu() {

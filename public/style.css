@@ -78,12 +78,14 @@ body {
   margin-top: 6vh;
   width: 2vh;
   align-items: center;
+  margin-left: 1rem;
 }
 .search-input {
   width: 20vw;
   max-width: 190px;
   border: 2px solid;
   border-radius: 30px;
+  margin-left: 1rem;
 
   border-color: #0b0b0b;
 
@@ -96,6 +98,7 @@ body {
   border-radius: 30px;
   align-items: center;
   border-color: #0b0b0b;
+  margin-left: 1rem;
 
 }
 .search-container::placeholder {
@@ -184,6 +187,19 @@ body {
   color: #f00a0a;
   cursor: pointer;
 }
+.footer-container{
+
+  height: 5rem;
+
+  margin-top: 4rem;
+  margin-left: 4rem;
+  align-items: center;
+}
+.footerText-container{
+
+  padding-top: 2rem;
+  padding-left: 5rem;
+}
 
 @media screen and (max-width: 768px) {
   .menu a:not(:first-child) {
@@ -235,6 +251,7 @@ body {
   .header {
     flex-direction: column;
     align-items: center;
+    background-color:  rgb(244, 244, 244);
   }
 
 
@@ -244,6 +261,15 @@ body {
   .video-container {
    margin-left: 0.3rem;/* Optional: You can set a maximum width */
   }
+  .footerText-container{
+
+    padding-left:1rem;
+  
+  }
+
+.text-container {
+  margin-top: 5%;
+}
 }
 
 @media screen and (min-width: 1168px) {

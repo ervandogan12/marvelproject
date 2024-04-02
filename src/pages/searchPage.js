@@ -8,9 +8,9 @@ if (inputValue!==undefined) {
     const categoryData = await getData("stories");
     let foundedSearchItems = [];
     categoryData.data.results.map((item) => {
-console.log('10---'+item.title)
+
       if (item.title.toLowerCase().includes(searchText)) {
-        console.log('11---'+item.title)
+
         foundedSearchItems.push(item);
       }
     });
